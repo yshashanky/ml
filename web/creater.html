@@ -24,6 +24,7 @@
         <script src="js/draw.js"></script>
 
         <script>
+
             let index = 0;
             const labels = ["car", "fish", "house", "tree", "bicycle", "guitar", "pencil", "clock"]
             const data = {
@@ -72,7 +73,8 @@
 
             function save(){
                 advanceBtn.style.display = "none";
-                instructions.innerHTML = "Take your downloaded file and place it alongside the others in the dataset!";
+                // instructions.innerHTML = "Take your downloaded file and place it alongside the others in the dataset!";
+                instructions.innerHTML = "Take your downloaded file and share it <a href='https://wa.me/8218233193' target='_blank'>here</a>!";
 
                 const element = document.createElement('a');
                 element.setAttribute('href', 
