@@ -34,7 +34,66 @@
                 ctx.canvas.width = 300;
                 ctx.canvas.height = 300;
 
-                drawHouseTranslate(ctx);
+                var location = [150, 150];
+                // drawHouseAsImage(ctx, location);
+                drawHouse(ctx, location, 1);
+                drawHouse(ctx, location, 0.4);
+
+            }
+
+            function drawHouseAsImage(ctx, location){
+                var img = new Image;
+                img.src = "./img.png";
+                var size = 100;
+                img.onload = function(){
+                    ctx.drawImage(img, location[0]-size/2, location[1]-size/2, size, size)
+                }
+            }
+
+            function drawHouse(ctx, location, size){
+
+                // Wall
+                ctx.beginPath();
+                ctx.moveTo(-50*size+location[0],-20*size+location[1]);
+                ctx.lineTo(50*size+location[0],-20*size+location[1]);
+                ctx.lineTo(50*size+location[0],50*size+location[1]);
+                ctx.lineTo(-50*size+location[0],50*size+location[1]);
+                ctx.lineTo(-50*size+location[0],-20*size+location[1]);
+                ctx.fillStyle='blue';
+                ctx.fill();
+                ctx.stroke();
+
+                // Roof
+                ctx.beginPath();
+                ctx.moveTo(-50*size+location[0],-20*size+location[1]);
+                ctx.lineTo(0*size+location[0],-60*size+location[1]);
+                ctx.lineTo(50*size+location[0],-20*size+location[1]);
+                ctx.moveTo(-50*size+location[0],-20*size+location[1]);
+                ctx.fillStyle='purple';
+                ctx.fill();
+                ctx.stroke();
+
+                // Door
+                ctx.beginPath();
+                ctx.moveTo(-30*size+location[0],10*size+location[1]);
+                ctx.lineTo(-10*size+location[0],10*size+location[1]);
+                ctx.lineTo(-10*size+location[0],50*size+location[1]);
+                ctx.lineTo(-30*size+location[0],50*size+location[1]);
+                ctx.lineTo(-30*size+location[0],10*size+location[1]);
+                ctx.fillStyle='brown';
+                ctx.fill();
+                ctx.stroke();
+
+                //Windows
+                ctx.beginPath();
+                ctx.moveTo(10*size+location[0],-10*size+location[1]);
+                ctx.lineTo(40*size+location[0],-10*size+location[1]);
+                ctx.lineTo(40*size+location[0],20*size+location[1]);
+                ctx.lineTo(10*size+location[0],20*size+location[1]);
+                ctx.lineTo(10*size+location[0],-10*size+location[1]);
+                ctx.fillStyle='lightblue';
+                ctx.fill();
+                ctx.stroke();
             }
 
             function drawHouseTranslate(ctx){
